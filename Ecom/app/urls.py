@@ -4,8 +4,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('',views.Productdetail.as_view(),name='home'),
-    path('product-detail/', views.product_detail, name='product-detail'),
-    path('cart/', views.add_to_cart, name='add-to-cart'),
+    path('product-detail/<int:pk>/', views.ProductDetailView.as_view(), name='product-detail'),
+    path('cart/', views.show_cart, name='showcart'),
+    path('add-to-cart/', views.add_to_cart, name='add-to-cart'),
+    path('pluscart/',views.pluscart,name='pluscart'),
     path('buy/', views.buy_now, name='buy-now'),
     path('profile/', views.profile, name='profile'),
     path('address/', views.address, name='address'),
